@@ -1,0 +1,32 @@
+Manifest-Version: 1.0
+Export-Package: com.rabbitmq.client.impl;version="0.0.0";uses:="junit.
+ framework",com.rabbitmq.client.test;version="0.0.0";uses:="com.rabbit
+ mq.client,com.rabbitmq.client.impl,com.rabbitmq.utility,junit.framewo
+ rk",com.rabbitmq.client.test.functional;version="0.0.0";uses:="com.ra
+ bbitmq.client,com.rabbitmq.client.impl,com.rabbitmq.client.test,com.r
+ abbitmq.utility,junit.framework",com.rabbitmq.client.test.performance
+ ;version="0.0.0";uses:="com.rabbitmq.client,org.apache.commons.cli",c
+ om.rabbitmq.client.test.server;version="0.0.0";uses:="com.rabbitmq.cl
+ ient,com.rabbitmq.client.impl,com.rabbitmq.client.test,com.rabbitmq.c
+ lient.test.functional,junit.framework",com.rabbitmq.client.test.ssl;v
+ ersion="0.0.0";uses:="com.rabbitmq.client.test,junit.framework",com.r
+ abbitmq.examples;version="0.0.0";uses:="com.rabbitmq.client,com.rabbi
+ tmq.client.impl,com.rabbitmq.examples.perf,com.rabbitmq.utility,javax
+ .net,org.apache.commons.cli",com.rabbitmq.examples.perf;version="0.0.
+ 0";uses:="com.rabbitmq.client",com.rabbitmq.tools;version="0.0.0";use
+ s:="com.rabbitmq.client.impl",com.rabbitmq.utility;version="0.0.0";us
+ es:="junit.framework"
+Bundle-Vendor: SpringSource
+Bundle-Version: 0.0.0
+Tool: Bundlor 1.0.0.RELEASE
+Bundle-Name: RabbitMQ Java AMQP client library
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: com.rabbitmq.client
+Import-Package: com.rabbitmq.client;version="[0.0.0,0.1)",com.rabbitmq
+ .client.impl;version="[0.0.0,0.1)",com.rabbitmq.client.impl.recovery;
+ version="[0.0.0,0.1)",com.rabbitmq.tools.json;version="[0.0.0,0.1)",c
+ om.rabbitmq.tools.jsonrpc;version="[0.0.0,0.1)",com.rabbitmq.utility;
+ version="[0.0.0,0.1)",javax.net;version="0",javax.net.ssl;version="0"
+ ,junit.framework;version="[4,5)",org.apache.commons.cli;version="[1.1
+ ,2)"
+

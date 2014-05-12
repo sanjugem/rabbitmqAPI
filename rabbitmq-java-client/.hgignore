@@ -1,0 +1,13 @@
+syntax: glob
+*~
+*.class
+*.dat
+*.ipr
+*.iws
+*.iml
+*.dump
+
+syntax: regexp
+^build/
+^out/
+^.idea/
