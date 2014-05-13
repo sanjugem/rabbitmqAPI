@@ -22,14 +22,15 @@ try:
 		    if response :    
 			    
 			    
-			    channel.exchange_declare(exchange='node1',type='topic',durable='true', arguments={"arg1":"test"})
+			    #channel.exchange_declare(exchange='node2',type='topic',durable='true', arguments={"arg1":"test"})
+			    channel.exchange_declare(exchange='node2',type='topic')
 			    message= response
-			    channel.basic_publish(exchange='node1',routing_key='temperature',body=message)
-			    channel.basic_publish(exchange='node1',routing_key='light',body=message)
-			    channel.queue_declare(queue='temperature',durable='true')
-			    channel.queue_declare(queue='light',durable='true')
-			    channel.queue_bind(exchange='node1',queue='temperature',routing_key='temperature')
-			    channel.queue_bind(exchange='node1',queue='light',routing_key='light')
+			    channel.basic_publish(exchange='node2',routing_key='light',body=message)
+			    #channel.basic_publish(exchange='node1',routing_key='light',body=message)
+			    #channel.queue_declare(queue='temperature',exclusive='true')
+			    #channel.queue_declare(queue='light',exclusive='true')
+			    #channel.queue_bind(exchange='node1',queue='temperature',routing_key='temperature')
+			    #channel.queue_bind(exchange='node1',queue='light',routing_key='light')
 
 			    print " [x] Sent %r" % (message,)
 	connection.close()
