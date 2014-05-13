@@ -9,7 +9,9 @@ ser = serial.Serial(port='/dev/ttyAMA0',baudrate=115200,timeout=0.2)
 #ser.open()
 
 try:
-	connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
+	credentials = pika.PlainCredentials('admin', 'pass')
+	parameters = pika.ConnectionParameters('localhost',5672,'shost',credentials)
+	connection = pika.BlockingConnection(parameters)
 	channel= connection.channel()
 	while 1:
 		if (ser.inWaiting() > 0):
@@ -20,12 +22,12 @@ try:
 		    if response :    
 			    
 			    
-			    channel.exchange_declare(exchange='node1',type='fanout')
+			    channel.exchange_declare(exchange='node1',type='topic',durable='true', arguments={"arg1":"test"})
 			    message= response
 			    channel.basic_publish(exchange='node1',routing_key='temperature',body=message)
 			    channel.basic_publish(exchange='node1',routing_key='light',body=message)
-			    channel.queue_declare(queue='temperature')
-			    channel.queue_declare(queue='light')
+			    channel.queue_declare(queue='temperature',durable='true')
+			    channel.queue_declare(queue='light',durable='true')
 			    channel.queue_bind(exchange='node1',queue='temperature',routing_key='temperature')
 			    channel.queue_bind(exchange='node1',queue='light',routing_key='light')
 
